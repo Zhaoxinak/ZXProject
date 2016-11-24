@@ -1,0 +1,8 @@
+platform :ios, '7.0'
+
+target 'ZXProject' do
+   pod 'AFNetworking'
+   pod 'JSONModel'
+   pod 'MBProgressHUD'
+   
+end
