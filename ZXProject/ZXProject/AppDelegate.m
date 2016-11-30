@@ -7,7 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "CommonHeader.h"
 #import "CustomTabBarController.h"
+
+//崩溃日志
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -19,9 +25,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // 设置键盘监听管理
+    [self setKeyboardManager];
+   
+    // 设置tabBar
     CustomTabBarController *customTabBar = [CustomTabBarController new];
-    
     self.window.rootViewController = customTabBar;
+    
+    //崩溃日志
+    [self setDebug];
     
     return YES;
 }
@@ -52,6 +64,29 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark -- Fabric崩溃日志
+-(void)setDebug{
+    [[Fabric sharedSDK] setDebug: YES];
+    [Fabric with:@[[Crashlytics class]]];
+//    [CrashlyticsKit setUserIdentifier:@"123456789"];
+//    [CrashlyticsKit setUserEmail:@"person@domain.com"];
+//    [CrashlyticsKit setUserName:@"Awesome AppUser"];
+//    [Fabric with:@[CrashlyticsKit]];
+}
+
+#pragma mark -- 设置全局键盘弹出
+-(void)setKeyboardManager{
+    
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES; // 控制整个功能是否启用。
+    manager.shouldResignOnTouchOutside =YES; // 控制点击背景是否收起键盘
+    manager.shouldToolbarUsesTextFieldTintColor =YES; // 控制键盘上的工具条文字颜色是否用户自定义
+    manager.enableAutoToolbar =YES; // 控制是否显示键盘上的工具条
+    manager.toolbarManageBehaviour =IQAutoToolbarByPosition; // 最新版的设置键盘的returnKey的关键字 ,可以点击键盘上的next键，自动跳转到下一个输入框，最后一个输入框点击完成，自动收起键盘。
+  
+}
+
 
 
 @end

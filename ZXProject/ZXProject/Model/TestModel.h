@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Mr.X. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import <JSONModel.h> //模型
 
 @protocol ProjectsModel <NSObject>
 @end

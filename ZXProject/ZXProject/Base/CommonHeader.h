@@ -9,21 +9,33 @@
 #ifndef CommonHeader_h
 #define CommonHeader_h
 
+/********************系统工具引用*********************/
 #import <Foundation/Foundation.h> //框架
 #import <UIKit/UIKit.h> //UI
 
+/********************自己工具引用*********************/
 #import "GlobalURL.h" //网络地址
-#import <MBProgressHUD.h> //提示框
-#import <AFNetworking.h> //网络请求
-
 #import "NSDate+CH.h"   //日期
 #import "UIButton+Response.h" //按钮点击间隔
 #import "UIButton+Extension.h" //按钮扩展
 #import "UIResponder+FirstResponder.h"  //第一响应
 #import "UIView+Common.h" //坐标
-
 #import "ZXTools.h"  //赵昕的工具
 #import "NetworkHelper.h" //网络请求
+
+/********************第三方引用*********************/
+#import <AFNetworking.h> //网络请求
+#import <JSONModel.h> //模型
+#import <MBProgressHUD.h> //提示框
+#import <MJRefresh.h> //刷新
+#import <SDCycleScrollView.h> //轮播器
+#import <UIImageView+WebCache.h>//sdWebImage
+#import <TOWebViewController.h> // 跳转webView
+#import <ZYQAssetPickerController.h> //添加图片
+#import <IQKeyboardManager.h> //键盘弹出
+#import <IQKeyboardReturnKeyHandler.h> //键盘弹出
+
+
 
 /**
  *  屏幕宽高比例（以6为基准）

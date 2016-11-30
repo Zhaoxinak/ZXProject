@@ -7,10 +7,12 @@
 //
 
 #import "OneViewController.h"
-#import "AFNetworking.h"
 #import "TestModel.h"
+#import <Crashlytics/Crashlytics.h>
 
-@interface OneViewController ()
+
+
+@interface OneViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) NSArray *dataArray;
 
@@ -38,10 +40,40 @@
         }else{
             
             
-            
-            
         }
     }];
+    
+    //在需要使用的界面设置
+    IQKeyboardReturnKeyHandler *retuenKeyHandler = [[IQKeyboardReturnKeyHandler alloc]initWithViewController:self];
+    retuenKeyHandler.lastTextFieldReturnKeyType =UIReturnKeyDone; // 设置最后一个输入框
+    
+    
+    UITextField *textField = [UITextField new];
+    textField.delegate = self;
+    textField.frame = CGRectMake(10, 400, kScreen_Width-20, 30);
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.tag = 1;
+    [self.view addSubview:textField];
+    
+    
+    UITextField *textField1 = [UITextField new];
+    textField1.delegate = self;
+    textField1.frame = CGRectMake(10, 440, kScreen_Width-20, 30);
+    textField1.backgroundColor = [UIColor whiteColor];
+    textField1.tag = 2;
+    [self.view addSubview:textField1];
+    
+    
+    
+    NSArray *a = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+    for (int i = 0; i<4; i++) {
+        
+        UILabel *label = [UILabel new];
+        label.text = [a objectAtIndex:i];
+
+    }
+    
+    
 }
 
 
