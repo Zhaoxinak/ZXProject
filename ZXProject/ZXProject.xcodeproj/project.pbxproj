@@ -287,7 +287,6 @@
 				9E54583F1DDD7BF7002CA99D /* Resources */,
 				98BC26569CEF54357EEC7095 /* [CP] Embed Pods Frameworks */,
 				C2B7F893A7D89460F3364784 /* [CP] Copy Pods Resources */,
-				9EC39AE51DE8320E002578D6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -375,19 +374,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZXProject/Pods-ZXProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		9EC39AE51DE8320E002578D6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 175cc50436f0cabfc91b2794bc0a1eded213517a b265f23472f076edeec8acd5be902d88e11225e93877c74ce0a09a05f2b9daff";
 		};
 		C2B7F893A7D89460F3364784 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

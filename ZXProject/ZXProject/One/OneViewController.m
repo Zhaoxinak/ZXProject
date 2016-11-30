@@ -8,8 +8,6 @@
 
 #import "OneViewController.h"
 #import "TestModel.h"
-#import <Crashlytics/Crashlytics.h>
-
 
 
 @interface OneViewController ()<UITextFieldDelegate>

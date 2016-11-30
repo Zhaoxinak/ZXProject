@@ -10,10 +10,6 @@
 #import "CommonHeader.h"
 #import "CustomTabBarController.h"
 
-//崩溃日志
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
-
 
 @interface AppDelegate ()
 
@@ -31,10 +27,7 @@
     // 设置tabBar
     CustomTabBarController *customTabBar = [CustomTabBarController new];
     self.window.rootViewController = customTabBar;
-    
-    //崩溃日志
-    [self setDebug];
-    
+
     return YES;
 }
 
@@ -63,16 +56,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-#pragma mark -- Fabric崩溃日志
--(void)setDebug{
-    [[Fabric sharedSDK] setDebug: YES];
-    [Fabric with:@[[Crashlytics class]]];
-//    [CrashlyticsKit setUserIdentifier:@"123456789"];
-//    [CrashlyticsKit setUserEmail:@"person@domain.com"];
-//    [CrashlyticsKit setUserName:@"Awesome AppUser"];
-//    [Fabric with:@[CrashlyticsKit]];
 }
 
 #pragma mark -- 设置全局键盘弹出

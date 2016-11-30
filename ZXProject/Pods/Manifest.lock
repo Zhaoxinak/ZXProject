@@ -14,10 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - Crashlytics (3.8.3):
-    - Fabric (~> 1.6.3)
   - DZNEmptyDataSet (1.8.1)
-  - Fabric (1.6.11)
   - IQKeyboardManager (3.3.7)
   - JSONModel (1.7.0)
   - MBProgressHUD (1.0.0)
@@ -34,9 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - Crashlytics
   - DZNEmptyDataSet
-  - Fabric
   - IQKeyboardManager
   - JSONModel
   - MBProgressHUD
@@ -48,9 +43,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -60,6 +53,6 @@ SPEC CHECKSUMS:
   TOWebViewController: a29908019f7e0e0f8eccfab8a1ee8dcdf4fc5aac
   ZYQAssetPickerController: e5cf51ee6c05fa06746830026c247cb9f6699e84
 
-PODFILE CHECKSUM: 486ab4e66d7ee9d551934ce1f6062d9e974ee54d
+PODFILE CHECKSUM: 6807e66ddacb461f5f7fe9136c88933fb99f0056
 
 COCOAPODS: 1.1.1

@@ -10,8 +10,6 @@ target 'ZXProject' do
    pod 'SDCycleScrollView'
    pod 'ZYQAssetPickerController'
    pod 'IQKeyboardManager'
-   pod 'Fabric'
-   pod 'Crashlytics'
    pod 'DZNEmptyDataSet'
    
    
