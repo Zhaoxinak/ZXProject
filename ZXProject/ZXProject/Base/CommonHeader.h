@@ -34,7 +34,7 @@
 #import <ZYQAssetPickerController.h> //添加图片
 #import <IQKeyboardManager.h> //键盘弹出
 #import <IQKeyboardReturnKeyHandler.h> //键盘弹出
-
+#import <UIScrollView+EmptyDataSet.h> //tableView为空时数据为空
 
 
 /**
@@ -60,6 +60,12 @@
 #define kScreen_Height [UIScreen mainScreen].bounds.size.height
 
 #define kScreen_Width [UIScreen mainScreen].bounds.size.width
+
+#define kScreen_StatusBarHeight 20
+
+#define kScreen_NavHeight 64
+
+#define kScreen_tabBarHeight 49
 
 #define kKeyWindow [UIApplication sharedApplication].keyWindow
 
@@ -124,7 +130,7 @@ return _instance; \
 #define OneColor   RGBColor(40, 205, 251, 1)
 #define TwoColor   RGBColor(40, 205, 251, 1)
 #define ThreeColor RGBColor(40, 205, 251, 1)
-
+#define BGColor    RGBColor(241, 241, 241, 1)
 /**
  *  nav字体大小
  */

@@ -64,16 +64,6 @@
     [self.view addSubview:textField1];
     
     
-    
-    NSArray *a = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
-    for (int i = 0; i<4; i++) {
-        
-        UILabel *label = [UILabel new];
-        label.text = [a objectAtIndex:i];
-
-    }
-    
-    
 }
 
 

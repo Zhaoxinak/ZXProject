@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E16A5FF1DEED11E00D09DDD /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E16A5FE1DEED11E00D09DDD /* BaseTableViewController.m */; };
 		9E4CED271DDEEF2600259FDE /* NetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4CED261DDEEF2600259FDE /* NetworkHelper.m */; };
 		9E4CED2C1DDEF73E00259FDE /* ZXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4CED2B1DDEF73E00259FDE /* ZXTools.m */; };
 		9E4CED2F1DDEF7CA00259FDE /* ZXScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4CED2E1DDEF7CA00259FDE /* ZXScrollView.m */; };
@@ -37,6 +38,8 @@
 /* Begin PBXFileReference section */
 		0C7AF1B03E3B58B642798022 /* Pods-ZXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZXProject/Pods-ZXProject.debug.xcconfig"; sourceTree = "<group>"; };
 		4D918681604A15EE2101F31A /* libPods-ZXProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZXProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E16A5FD1DEED11E00D09DDD /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		9E16A5FE1DEED11E00D09DDD /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		9E4CED251DDEEF2600259FDE /* NetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHelper.h; sourceTree = "<group>"; };
 		9E4CED261DDEEF2600259FDE /* NetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHelper.m; sourceTree = "<group>"; };
 		9E4CED281DDEEFD100259FDE /* GlobalURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalURL.h; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				9E5458831DDD843F002CA99D /* CommonHeader.h */,
 				9E5458811DDD843F002CA99D /* BaseViewController.h */,
 				9E5458821DDD843F002CA99D /* BaseViewController.m */,
+				9E16A5FD1DEED11E00D09DDD /* BaseTableViewController.h */,
+				9E16A5FE1DEED11E00D09DDD /* BaseTableViewController.m */,
 				9E5458881DDD8440002CA99D /* CustomTabBarController.h */,
 				9E5458891DDD8440002CA99D /* CustomTabBarController.m */,
 				9E5458841DDD843F002CA99D /* CustomNaviController.h */,
@@ -412,6 +417,7 @@
 				9E5458491DDD7BF8002CA99D /* AppDelegate.m in Sources */,
 				9E54587E1DDD8408002CA99D /* TwoViewController.m in Sources */,
 				9E5458461DDD7BF8002CA99D /* main.m in Sources */,
+				9E16A5FF1DEED11E00D09DDD /* BaseTableViewController.m in Sources */,
 				9E54588C1DDD8440002CA99D /* CustomTabBar.m in Sources */,
 				9E8232F61DE2941100BAE227 /* UIButton+Extension.m in Sources */,
 				9E8232F71DE2941100BAE227 /* UIResponder+FirstResponder.m in Sources */,

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E6C489DE2FC55C65EDEBA565913FF3A6'
-               BlueprintName = 'TOWebViewController'
+               BlueprintIdentifier = '5437890023F30CA85DFCA260CA914D48'
+               BlueprintName = 'DZNEmptyDataSet'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libTOWebViewController.a'>
+               BuildableName = 'libDZNEmptyDataSet.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

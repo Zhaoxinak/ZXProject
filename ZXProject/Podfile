@@ -12,5 +12,7 @@ target 'ZXProject' do
    pod 'IQKeyboardManager'
    pod 'Fabric'
    pod 'Crashlytics'
+   pod 'DZNEmptyDataSet'
+   
    
 end
