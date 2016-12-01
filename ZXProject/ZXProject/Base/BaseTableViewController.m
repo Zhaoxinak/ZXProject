@@ -8,7 +8,7 @@
 
 #import "BaseTableViewController.h"
 
-@interface BaseTableViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface BaseTableViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, getter=isLoading) BOOL loading;
 
@@ -36,6 +36,8 @@
         _tableView = [[ZXTableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
         _tableView.emptyDataSetSource = self;
         _tableView.emptyDataSetDelegate = self;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
         _tableView.separatorStyle = NO;
         _tableView.backgroundColor = BGColor;
         _tableView.scrollEnabled =YES;
@@ -52,6 +54,8 @@
     
     self.view.backgroundColor = BGColor;
     
+    [self setRefresh];
+    [self setHeaderRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -173,5 +177,53 @@
     });
 }
 
+#pragma mark - 刷新系统
+-(void)setHeaderRefresh{
+    
+    // Enter the refresh status immediately
+    [self.tableView.mj_header beginRefreshing];
+}
+
+
+-(void)setRefresh{
+    // Set the callback（Once you enter the refresh status，then call the action of target，that is call [self loadNewData]）
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+
+    // Set the callback（Once you enter the refresh status，then call the action of target，that is call [self loadMoreData]）
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+}
+
+#pragma mark - 重置数据
+-(void)loadNewData{
+    
+    [self setDelayEndRefreshing];
+}
+
+#pragma mark - 加载数据
+-(void)loadMoreData{
+    
+    [self setDelayEndRefreshing];
+}
+
+#pragma mark - 结束刷新
+-(void)endRefresh{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+
+#pragma mark - 模拟加载延迟 结束刷新
+-(void)setDelayEndRefreshing{
+    
+    //模拟加载延迟
+    WEAK_SELF;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        STRONG_SELF;
+        [self endRefresh];
+        
+    });
+
+    
+    
+}
 
 @end

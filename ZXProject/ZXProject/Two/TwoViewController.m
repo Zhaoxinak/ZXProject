@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     
     
-    self.tableView.frame = CGRectMake(0, 0, kScreen_Width, kScreen_Height-kScreen_NavHeight-kScreen_NavHeight);
+    self.tableView.frame = CGRectMake(0, 0, kScreen_Width, kScreen_Height-kScreen_NavHeight-kScreen_tabBarHeight);
     [self.view insertSubview:self.tableView atIndex:1];
 }
 
@@ -36,12 +36,12 @@
 #pragma mark - UITableViewDelegate，UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 0;
+    return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 1;
+    return 0;
 }
 
 
@@ -87,11 +87,20 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    cell.textLabel.text = @"1";
+    UITextField *textField = [UITextField new];
+    textField.frame = CGRectMake(10, 0, kScreen_Width-20, 44);
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.tag = 1;
+    [cell.contentView addSubview:textField];
+    
     
     return cell;
     
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 44;
+}
 
 @end

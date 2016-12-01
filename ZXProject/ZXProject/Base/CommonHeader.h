@@ -135,6 +135,12 @@ return _instance; \
  *  nav字体大小
  */
 #define KNavigationFont [UIFont systemFontOfSize:18]
-
+/**
+ *  nav字体大小
+ */
+#define OneFont   [UIFont systemFontOfSize:18]
+#define TwoFont   [UIFont systemFontOfSize:18]
+#define ThreeFont [UIFont systemFontOfSize:18]
+#define FourFont  [UIFont systemFontOfSize:18]
 
 #endif /* CommonHeader_h */
