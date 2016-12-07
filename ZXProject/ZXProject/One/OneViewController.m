@@ -21,25 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [NetworkHelper dataWithDiscover:YES completion:^(BOOL finish, id  _Nullable responseObject) {
-        if (finish) {
-            TestModel *model = [[TestModel alloc] initWithData:responseObject error:nil];
-            
-            if ([model.code isEqualToString:@"1"]) {
-                self.dataArray = [model.data.projects copy];
-                NSLog(@"%@", self.dataArray);
-            }else{
-                NSString *msg = model.msg;
-                [NetworkHelper showServerMsg:msg];
-                
-            }
-          
-            //完成
-        }else{
-            
-            
-        }
-    }];
+    [self dataWithDiscover:YES requestId:1];
     
     //在需要使用的界面设置
     IQKeyboardReturnKeyHandler *retuenKeyHandler = [[IQKeyboardReturnKeyHandler alloc]initWithViewController:self];
@@ -64,6 +46,26 @@
     
 }
 
+#pragma mark当网络请求开始或结束时，下面两个方法将会被调到。
+- (void)handleData:(id _Nullable)data byRequestId:(NSInteger)requestId{
+    if (requestId == 1) {
+        TestModel *model = [[TestModel alloc] initWithData:data error:nil];
+        
+        if ([model.code isEqualToString:@"1"]) {
+            self.dataArray = [model.data.projects copy];
+            NSLog(@"%@", self.dataArray);
+        }else{
+            NSString *msg = model.msg;
+            [self showServerMsg:msg];
+        }
+    }
+    
+}
+
+- (void)handleError:(id _Nullable)error byRequestId:(NSInteger)requestId{
+ 
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

@@ -19,29 +19,22 @@ typedef enum : NSUInteger {
 } HTTPHeaderMethod; //请求方法
 
 
-@implementation NetworkHelper
+@implementation NSObject (FetchData)
 
 #pragma mark发现界面数据
-+(void)dataWithDiscover:(BOOL)progress completion:(void (^ _Nonnull)(BOOL finish, id  _Nullable responseObject))completion {
+-(void)dataWithDiscover:(BOOL)progress requestId:(NSInteger)requestId{
     if ([ZXTools getCurrentWindow] == nil) {
         progress = NO;
     }
     //    NSString *params = [NSString stringWithFormat:@"userName=%@", @""];
     NSString *str = [NSString stringWithFormat:@"%@%@", BASEURL, URL_DISCOVER];
     NSLog(@"%@", str);
-    [self data:progress url:str params:@"" type:NormalHTTPHeader Method:GETMethod completion:^(id  _Nullable responseObject){
-        if (responseObject) {
-            
-            
-            completion(YES, responseObject);
-        } else {
-            completion(NO, nil);
-        }
-    }];
+    [self data:progress requestId:requestId url:str params:@"" type:NormalHTTPHeader Method:GETMethod];
+    
 }
 
 #pragma mark图片上传
-+(void)dataWithImgupload:(BOOL)progress viewpointId:(NSString *_Nonnull)viewpointId imageDatas:(NSMutableArray *_Nonnull)imageDatas completion:(void (^ _Nonnull)(BOOL finish))completion {
+-(void)dataWithImgupload:(BOOL)progress viewpointId:(NSString *_Nonnull)viewpointId imageDatas:(NSMutableArray *_Nonnull)imageDatas completion:(void (^ _Nonnull)(BOOL finish))completion {
     if ([ZXTools getCurrentWindow] == nil) {
         progress = NO;
     }
@@ -62,24 +55,43 @@ typedef enum : NSUInteger {
 }
 
 
+
+
+
+#pragma mark - 回调
+// 当网络请求开始或结束时，下面两个方法将会被调到。
+- (void)fetchingDidStartWithRequestId:(NSInteger)requestId {
+}
+
+- (void)fetchingDidEndWithRequestId:(NSInteger)requestId {
+}
+
+- (void)handleData:(id _Nullable)data byRequestId:(NSInteger)requestId {
+}
+
+- (void)handleError:(id _Nullable)error byRequestId:(NSInteger)requestId {
+}
+
 #pragma mark工具类
 //工具类
 /*************************************************************/
 
 #pragma mark二进制转字典
-+(NSDictionary *)nsdata2dic:(NSData *)data {
+-(NSDictionary *)nsdata2dic:(NSData *)data {
     return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
 }
 
 #pragma mark隐藏当前hud
-+(void)hideMBProgressHUD{
+-(void)hideMBProgressHUD{
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:[ZXTools getCurrentWindow] animated:YES];
     });
 }
 
 #pragma mark通用数据请求
-+(void)data:(BOOL)progress url:(NSString *)url params:(NSString *)params type:(HTTPHeaderMethod)type Method:(HTTPMethod)Method completion:(void (^ _Nonnull)(id  _Nullable responseObject))completion {
+-(void)data:(BOOL)progress requestId:(NSInteger)requestId url:(NSString *)url params:(NSString *)params type:(HTTPHeaderMethod)type Method:(HTTPMethod)Method{
+    [self fetchingDidStartWithRequestId:requestId];
+    
     if (progress) {
         [MBProgressHUD showHUDAddedTo:[ZXTools getCurrentWindow]animated:YES];
         
@@ -98,6 +110,8 @@ typedef enum : NSUInteger {
          [manager.requestSerializer setValue:@"" forHTTPHeaderField:@""];
     }
 
+    
+    //POST方法
     if (Method == POSTMethod) {
         WEAK_SELF;
         [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -108,7 +122,8 @@ typedef enum : NSUInteger {
                 [self hideMBProgressHUD];
             }
             NSLog(@"data:%@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
-            completion(responseObject);
+            [self handleData:responseObject byRequestId:requestId];
+            [self fetchingDidEndWithRequestId:requestId];
            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             STRONG_SELF;
@@ -118,8 +133,8 @@ typedef enum : NSUInteger {
             
             NSLog(@"error:%@", error);
             [ZXTools makeTask:[error localizedDescription]];
-            completion(nil);
-            
+            [self handleError:error byRequestId:requestId];
+            [self fetchingDidEndWithRequestId:requestId];
             
         }];
         
@@ -134,7 +149,8 @@ typedef enum : NSUInteger {
                 [self hideMBProgressHUD];
             }
             NSLog(@"data:%@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
-            completion(responseObject);
+            [self handleData:responseObject byRequestId:requestId];
+            [self fetchingDidEndWithRequestId:requestId];
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             STRONG_SELF;
@@ -144,8 +160,8 @@ typedef enum : NSUInteger {
             
             NSLog(@"error:%@", error);
             [ZXTools makeTask:[error localizedDescription]];
-            completion(nil);
-            
+            [self handleError:error byRequestId:requestId];
+            [self fetchingDidEndWithRequestId:requestId];
             
         }];
         
@@ -154,7 +170,7 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark通用图片请求
-+(void)imgData:(BOOL)progress url:(NSString *)url imageDatas:(NSMutableArray *_Nonnull)imageDatas imageName:(NSString *_Nonnull)imageName parameters:(NSDictionary *)parameters completion:(void (^ _Nonnull)(BOOL finish))completion{
+-(void)imgData:(BOOL)progress url:(NSString *)url imageDatas:(NSMutableArray *_Nonnull)imageDatas imageName:(NSString *_Nonnull)imageName parameters:(NSDictionary *)parameters completion:(void (^ _Nonnull)(BOOL finish))completion{
     if (progress) {
         [MBProgressHUD showHUDAddedTo:[ZXTools getCurrentWindow]animated:YES];
         
@@ -237,7 +253,7 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark通用错误数据处理
-+(void)showServerMsg:(NSString *)msg{
+-(void)showServerMsg:(NSString *)msg{
     
     [ZXTools makeTask:[NSString stringWithFormat:@"%@", msg]];
     if ([msg isEqualToString:@"未登录或登录超时，请重新登录后再操作"]) {
