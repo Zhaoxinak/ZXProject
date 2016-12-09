@@ -10,6 +10,8 @@
 
 @interface TwoViewController ()
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
 @end
 
 @implementation TwoViewController
@@ -23,12 +25,27 @@
     [self.view insertSubview:self.tableView atIndex:1];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+#pragma mark - 加载数据
+-(void)didlaodDataButton{
+    
+    
+    self.loading = YES;
+    //模拟加载延迟
+    WEAK_SELF;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        STRONG_SELF;
+        //初始化数据
+        _dataArray = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", nil];
+        [self.tableView reloadData];
+        [self endRefresh];
+        self.loading = NO;
+        
+    });
+    
+    
 }
-
-
 
 
 
@@ -41,7 +58,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 0;
+    return _dataArray.count;
 }
 
 
@@ -87,11 +104,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    UITextField *textField = [UITextField new];
-    textField.frame = CGRectMake(10, 0, kScreen_Width-20, 44);
-    textField.backgroundColor = [UIColor whiteColor];
-    textField.tag = 1;
-    [cell.contentView addSubview:textField];
+    cell.textLabel.text = _dataArray[indexPath.row];
     
     
     return cell;
@@ -101,6 +114,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 44;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end
