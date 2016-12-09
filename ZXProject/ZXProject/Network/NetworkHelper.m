@@ -22,7 +22,7 @@ typedef enum : NSUInteger {
 @implementation NSObject (FetchData)
 
 #pragma mark发现界面数据
--(void)dataWithDiscover:(BOOL)progress requestId:(NSInteger)requestId{
+-(void)dataWithDiscover:(BOOL)progress requestId:(NSInteger)requestId {
     if ([ZXTools getCurrentWindow] == nil) {
         progress = NO;
     }

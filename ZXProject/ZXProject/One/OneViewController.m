@@ -23,11 +23,6 @@
     
     [self dataWithDiscover:YES requestId:1];
     
-    //在需要使用的界面设置
-    IQKeyboardReturnKeyHandler *retuenKeyHandler = [[IQKeyboardReturnKeyHandler alloc]initWithViewController:self];
-    retuenKeyHandler.lastTextFieldReturnKeyType =UIReturnKeyDone; // 设置最后一个输入框
-    
-    
     UITextField *textField = [UITextField new];
     textField.delegate = self;
     textField.frame = CGRectMake(10, 400, kScreen_Width-20, 30);
