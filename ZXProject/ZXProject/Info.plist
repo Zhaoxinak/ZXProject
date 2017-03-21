@@ -65,6 +65,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>alipay</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>alisdk_wzm</string>
@@ -111,6 +113,8 @@
 		<string>sinaweibosso</string>
 		<string>weibosdk</string>
 		<string>weibosdk2.5</string>
+		<string>alipay</string>
+		<string>alipayshare</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -126,6 +130,15 @@
 			<true/>
 			<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 			<false/>
+			<key>alipay.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+			</dict>
 			<key>jpush.cn</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
