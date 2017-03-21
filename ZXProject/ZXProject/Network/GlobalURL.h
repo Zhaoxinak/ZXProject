@@ -6,9 +6,20 @@
 //  Copyright © 2016年 Wu Hengmin. All rights reserved.
 //
 
-//#define BASEURL       @"http://121.41.86.192:7080/api/"
+#define BASEURL       @"http://test.5cpr.com/"
 
-#define BASEURL       @"http://www.taogushen.com/api/"
+//#define BASEURL       @"http://166zy53075.iok.la:11687/5zm/"
 
 
 #define URL_DISCOVER             @"discover" //【发现】tab页面数据
+#define URL_UPLOADIMG            @"app/operate/upload/uploadFile.do" //上传图片
+
+
+
+
+
+
+
+
+
+

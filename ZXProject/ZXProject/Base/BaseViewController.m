@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 
+
 @interface BaseViewController ()
 
 @end
@@ -18,14 +19,14 @@
 
 -(void)loadView
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    TPKeyboardAvoidingScrollView *scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.view = scrollView;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = BGColor;
     
 }
 
@@ -33,6 +34,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

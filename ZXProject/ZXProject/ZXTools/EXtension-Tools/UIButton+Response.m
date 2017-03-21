@@ -51,7 +51,11 @@
     // 值得提醒一下：如果这里设置了统一的时间间隔，会影响UISwitch,如果想统一设置，又不想影响UISwitch，建议将UIControl分类，改成UIButton分类，实现方法是一样的
 //     if (self.custom_acceptEventInterval <= 0) {
          // 如果没有自定义时间间隔，则默认为2秒
+//        self.custom_acceptEventInterval = 0.5;
+    if (self.custom_acceptEventInterval >= 0.5) {
         self.custom_acceptEventInterval = 0.5;
+    }
+    
 //     }
     
     // 是否小于设定的时间间隔

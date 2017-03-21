@@ -6,7 +6,13 @@
 //  Copyright © 2016年 Mr.X. All rights reserved.
 //
 
+
+
+/************C************/
 #import "ThreeViewController.h"
+/************V************/
+
+/************M************/
 
 @interface ThreeViewController ()
 
@@ -16,22 +22,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //初始化数据
+    [self setupDatas];
+    //初始试图
+    [self setupViews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark -执行数据
+#pragma mark --初始化数据
+-(void)setupDatas{
+    
+    
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark -执行视图
+#pragma mark --初始化数据视图
+-(void)setupViews{
+    
+    self.view.backgroundColor = MainGoldColor;
+    
 }
-*/
+
 
 @end

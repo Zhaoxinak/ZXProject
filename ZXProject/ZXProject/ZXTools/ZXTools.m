@@ -281,10 +281,10 @@
         NSString *message = errorMessage;
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[weakSelf getCurrentWindow] animated:YES];
         hud.mode = MBProgressHUDModeText;
-        hud.label.text = message;
+        hud.labelText = message;
         hud.margin = 10.f;
         hud.removeFromSuperViewOnHide = YES;
-        [hud hideAnimated:YES afterDelay:2];
+        [hud hide:YES afterDelay:2];
     });
 }
 

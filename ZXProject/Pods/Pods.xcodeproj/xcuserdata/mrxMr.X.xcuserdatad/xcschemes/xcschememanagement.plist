@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>IQKeyboardManager.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JSONModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,7 +29,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ZXProject.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QBImagePickerController-QBImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QBImagePickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -59,7 +69,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ZYQAssetPickerController.xcscheme</key>
+		<key>TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,12 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0659B71386995AC7EE2A305F0A360EB1</key>
+		<key>0FAE56416B2093B4213B703C1B347956</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44C0B381061B2E07511CFD0869ED6265</key>
+		<key>180CDD660B7F059740EE87777D4F4D44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A606EEF6E08E82F270E71B4D9B66557</key>
+		<key>5EA7DA428DD9F1D3437D2BDBECD82E27</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95E80FF2D6A1FEC936B6D76A47724363</key>
+		<key>70DBD96BE39EC53EC0D5D91DC77CB84D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>779983BEBACEF5D08D08CC34D98ED6F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90CBEBD1C7C51BD828F80B2A095140D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A3D90B3B40E3A697C67BAAC613A5AAC8</key>
+		<key>B4D7CED1ADA8675DEBFD2AAF24CA6002</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC8B8433B3973BFA65AD21DBA58CED95</key>
+		<key>BFEE54D492FC6C74F4E5F5571D52ECB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6C489DE2FC55C65EDEBA565913FF3A6</key>
+		<key>FFBE88F518F783B8F722C1629AF5670B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

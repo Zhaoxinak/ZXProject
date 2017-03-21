@@ -6,11 +6,14 @@
 //  Copyright © 2016年 Mr.X. All rights reserved.
 //
 
+
+/************C************/
 #import "TwoViewController.h"
+/************V************/
+
+/************M************/
 
 @interface TwoViewController ()
-
-@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -18,107 +21,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    
-    self.tableView.frame = CGRectMake(0, 0, kScreen_Width, kScreen_Height-kScreen_NavHeight-kScreen_tabBarHeight);
-    [self.view insertSubview:self.tableView atIndex:1];
+    //初始化数据
+    [self setupDatas];
+    //初始试图
+    [self setupViews];
 }
 
-
-
-#pragma mark - 加载数据
--(void)didlaodDataButton{
+#pragma mark -执行数据
+#pragma mark --初始化数据
+-(void)setupDatas{
     
-    
-    self.loading = YES;
-    //模拟加载延迟
-    WEAK_SELF;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        STRONG_SELF;
-        //初始化数据
-        _dataArray = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", nil];
-        [self.tableView reloadData];
-        [self endRefresh];
-        self.loading = NO;
-        
-    });
     
     
 }
 
-
-
-
-#pragma mark - UITableViewDelegate，UITableViewDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+#pragma mark -执行视图
+#pragma mark --初始化数据视图
+-(void)setupViews{
     
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    self.view.backgroundColor = MainGoldColor;
     
-    return _dataArray.count;
-}
-
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
-    return 0.5;
-    
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    
-    return 0.5;
-    
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 0.5)];
-    headerView.backgroundColor = BGColor;
-    
-    return headerView;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 0.5)];
-    footerView.backgroundColor = BGColor;
-    
-    return footerView;
-}
-
-
-
-#pragma mark - UITableView展示
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString *cellIdentifier=@"cell";
-    
-    //首先根据标示去缓存池取
-    UITableViewCell *cell=nil;
-    //如果缓存池没有取到则重新创建并放到缓存池中
-    if(!cell){
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    
-    cell.textLabel.text = _dataArray[indexPath.row];
-    
-    
-    return cell;
-    
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 44;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

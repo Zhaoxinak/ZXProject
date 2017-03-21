@@ -8,6 +8,7 @@
 
 #import "BaseTableViewController.h"
 
+
 @interface BaseTableViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,UITableViewDelegate,UITableViewDataSource>
 
 
@@ -15,6 +16,7 @@
 @end
 
 @implementation BaseTableViewController
+
 
 #pragma mark -设置loading
 - (void)setLoading:(BOOL)loading
@@ -30,16 +32,16 @@
 
 
 #pragma mark -设置tableView
-- (ZXTableView *)tableView
+- (TPKeyboardAvoidingTableView *)tableView
 {
     if (_tableView == nil) {
-        _tableView = [[ZXTableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
+        _tableView = [[TPKeyboardAvoidingTableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
         _tableView.emptyDataSetSource = self;
         _tableView.emptyDataSetDelegate = self;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = NO;
-        _tableView.backgroundColor = BGColor;
+        _tableView.backgroundColor = [UIColor clearColor];
         _tableView.scrollEnabled =YES;
         
     }
@@ -75,6 +77,7 @@
         
         return [UIImage imageNamed:@""];
     }
+    
 }
 
 - (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView
@@ -91,7 +94,7 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = @"Please Allow Photo Access";
+    NSString *text = @"";
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
                                  NSForegroundColorAttributeName: [UIColor darkGrayColor]};
@@ -101,13 +104,13 @@
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = @"This allows you to share photos from your library and save photos to your camera roll.";
+    NSString *text = @"";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     paragraph.alignment = NSTextAlignmentCenter;
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
+    NSDictionary *attributes = @{NSFontAttributeName:Font(14),
                                  NSForegroundColorAttributeName: [UIColor lightGrayColor],
                                  NSParagraphStyleAttributeName: paragraph};
     
@@ -119,7 +122,7 @@
 {
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
     
-    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:@"" attributes:attributes];
 }
 
 //- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
@@ -169,7 +172,6 @@
     [self loadNewData];
 }
 
-
 #pragma mark - 刷新系统
 -(void)setHeaderRefresh{
     
@@ -189,12 +191,13 @@
 #pragma mark - 重置数据
 -(void)loadNewData{
     
-    
+   
 }
 
 #pragma mark - 加载数据
 -(void)loadMoreData{
     
+   
 }
 
 #pragma mark - 结束刷新
@@ -217,5 +220,12 @@
     
     
 }
+
+
+- (void)fetchingDidEndWithRequestId:(NSInteger)requestId{
+    self.loading = NO;
+    [self endRefresh];
+}
+
 
 @end

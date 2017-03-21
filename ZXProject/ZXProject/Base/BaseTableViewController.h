@@ -7,11 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "CommonHeader.h"
 
-@interface BaseTableViewController : BaseViewController
+@interface BaseTableViewController : UIViewController
 
 
-@property(nonatomic, strong)ZXTableView *tableView;
+@property(nonatomic, strong)TPKeyboardAvoidingTableView *tableView;
 @property (nonatomic, getter=isLoading) BOOL loading;
 
 #pragma mark - 重置数据

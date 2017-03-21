@@ -27,5 +27,26 @@ NSString * MD5Hash(NSString *aString);
 
 - (NSString *)intervalSinceNow: (NSString *) theDate;
 
++ (BOOL)isEmpty:(id)object;
 
+-(CGSize)sizeWithString:(NSString *)str font:(UIFont *)font maxSize:(CGSize)maxSize;
+
+//判断手机号码格式是否正确
++ (BOOL)valiMobile:(NSString *)mobile;
+
+//html 转NSAttributedString
++ (NSAttributedString *)strToAttriWithStr:(NSString *)htmlStr;
+
+// NSAttributedString转html
++ (NSString *)htmlStringByHtmlAttributeString:(NSAttributedString *)htmlAttributeString;
+
+//html中图片自适应
++ (NSString *)autoWebAutoImageSize:(NSString *)html;
++ (NSMutableString *)webImageFitToDeviceSize:(NSMutableString *)strContent;
+
+//获取html中的图片
++ (NSArray *) getImageurlFromHtml:(NSString *) webString;
+
+//获取手机具体型号
++ (NSString*)deviceModelName;
 @end
